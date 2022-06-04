@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tailwindPlayground": {
+    "agencySite": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -42,7 +42,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tailwind-playground",
+            "outputPath": "dist/agenct-site",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,12 +50,15 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -94,10 +97,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "tailwindPlayground:build:production"
+              "browserTarget": "agencySite:build:production"
             },
             "development": {
-              "browserTarget": "tailwindPlayground:build:development"
+              "browserTarget": "agencySite:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -105,7 +108,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tailwindPlayground:build"
+            "browserTarget": "agencySite:build"
           }
         },
         "test": {
@@ -118,7 +121,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss"
@@ -129,5 +133,5 @@
       }
     }
   },
-  "defaultProject": "tailwindPlayground"
+  "defaultProject": "agencySite"
 }
